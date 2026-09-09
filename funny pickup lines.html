@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funny Pickup Lines | KDB's Pickup Lines</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="home page.html" class="brand">KDB's <span>Pickup Lines</span></a>
+        <nav class="nav-links">
+          <a href="home page.html">Home</a>
+          <a href="romatic lines.html">Romantic</a>
+          <a href="funny pickup lines.html" class="active">Funny</a>
+          <a href="flirty pickup lines.html">Flirty</a>
+          <a href="random pickup line.html">Random</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container page-header-inner">
+          <h1>Funny Pickup Lines</h1>
+          <p>Playful and witty lines perfect for chats, reels, TikTok, and making people laugh while still leaving a smile behind.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="lines-grid">
+            <article class="line-card">
+              <p>“You must be my favorite distraction, because even my serious side somehow becomes playful when you are around.”</p>
+              <div class="line-meta">
+                <span>Category: Playful</span>
+                <button class="save-btn" data-line="You must be my favorite distraction, because even my serious side somehow becomes playful when you are around." data-category="Funny">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“Are you a magician? Because every time you appear, my mood instantly gets better and my worries disappear.”</p>
+              <div class="line-meta">
+                <span>Category: Charm</span>
+                <button class="save-btn" data-line="Are you a magician? Because every time you appear, my mood instantly gets better and my worries disappear." data-category="Funny">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“You are like a good joke: you make everything feel lighter, and I never get tired of laughing with you.”</p>
+              <div class="line-meta">
+                <span>Category: Social Media</span>
+                <button class="save-btn" data-line="You are like a good joke: you make everything feel lighter, and I never get tired of laughing with you." data-category="Funny">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“I was going to say something clever, but then you showed up and now all my thoughts are just full of you.”</p>
+              <div class="line-meta">
+                <span>Category: Cute</span>
+                <button class="save-btn" data-line="I was going to say something clever, but then you showed up and now all my thoughts are just full of you." data-category="Funny">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“If flirting had a class, you would be the teacher, and I would be the student trying my best to impress you.”</p>
+              <div class="line-meta">
+                <span>Category: Flirty</span>
+                <button class="save-btn" data-line="If flirting had a class, you would be the teacher, and I would be the student trying my best to impress you." data-category="Funny">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“You know what’s funny? I was fine before, but now my heart keeps asking where you are and why you are so amazing.”</p>
+              <div class="line-meta">
+                <span>Category: Sweet</span>
+                <button class="save-btn" data-line="You know what’s funny? I was fine before, but now my heart keeps asking where you are and why you are so amazing." data-category="Funny">Save</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>KDB's Pickup Lines</strong><br />
+          Bunamwaya Katale, Uganda<br />
+          0757507778 | 0772407789
+        </div>
+        <div class="footer-links">
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact</a>
+          <a href="favorites.html">Favorites</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const saveButtons = document.querySelectorAll('.save-btn');
+      const favoritesKey = 'kdb-favorites';
+
+      saveButtons.forEach((button) => {
+        const line = button.dataset.line;
+        const favorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+
+        if (favorites.includes(line)) {
+          button.classList.add('saved');
+          button.textContent = 'Saved';
+        }
+
+        button.addEventListener('click', () => {
+          const updatedFavorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+          if (updatedFavorites.includes(line)) {
+            const newFavorites = updatedFavorites.filter((item) => item !== line);
+            localStorage.setItem(favoritesKey, JSON.stringify(newFavorites));
+            button.classList.remove('saved');
+            button.textContent = 'Save';
+            return;
+          }
+
+          updatedFavorites.push(line);
+          localStorage.setItem(favoritesKey, JSON.stringify(updatedFavorites));
+          button.classList.add('saved');
+          button.textContent = 'Saved';
+        });
+      });
+    </script>
+  </body>
+</html>

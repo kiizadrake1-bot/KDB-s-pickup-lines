@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Pickup Line | KDB's Pickup Lines</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="home page.html" class="brand">KDB's <span>Pickup Lines</span></a>
+        <nav class="nav-links">
+          <a href="home page.html">Home</a>
+          <a href="romatic lines.html">Romantic</a>
+          <a href="funny pickup lines.html">Funny</a>
+          <a href="flirty pickup lines.html">Flirty</a>
+          <a href="random pickup line.html" class="active">Random</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container page-header-inner">
+          <h1>Random Pickup Line</h1>
+          <p>Press the button and let the website bring you a fresh line whenever you need one.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="random-box">
+            <h3>Give Me a Line 😏</h3>
+            <div id="randomLineDisplay">“You have a way of making my heart feel at home.”</div>
+            <button id="randomBtn" class="button primary">Generate Another Line</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>KDB's Pickup Lines</strong><br />
+          Bunamwaya Katale, Uganda<br />
+          0757507778 | 0772407789
+        </div>
+        <div class="footer-links">
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact</a>
+          <a href="favorites.html">Favorites</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const lines = [
+        'You have a way of making my heart feel at home.',
+        'I think I fell for you the moment you smiled at me.',
+        'You are my favorite kind of beautiful.',
+        'The best part of my day is the moment I think about you.',
+        'If love were a language, I would speak it to you every day.',
+        'You make my heart feel brave enough to say exactly how I feel.',
+        'I didn’t know happiness could look like this until I met you.',
+        'You are the kind of person who turns ordinary moments into memories.',
+        'Some people make me smile, but you make my whole world brighter.',
+        'I’m not just into you; I’m falling for your soul too.'
+      ];
+
+      const randomLineDisplay = document.getElementById('randomLineDisplay');
+      const randomBtn = document.getElementById('randomBtn');
+
+      function showRandomLine() {
+        const randomIndex = Math.floor(Math.random() * lines.length);
+        randomLineDisplay.textContent = `“${lines[randomIndex]}”`;
+      }
+
+      randomBtn.addEventListener('click', showRandomLine);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites | KDB's Pickup Lines</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="home page.html" class="brand">KDB's <span>Pickup Lines</span></a>
+        <nav class="nav-links">
+          <a href="home page.html">Home</a>
+          <a href="romatic lines.html">Romantic</a>
+          <a href="funny pickup lines.html">Funny</a>
+          <a href="flirty pickup lines.html">Flirty</a>
+          <a href="random pickup line.html">Random</a>
+          <a href="favorites.html" class="active">Favorites</a>
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container page-header-inner">
+          <h1>Favorites</h1>
+          <p>Your saved pickup lines stay here so you can revisit the ones that made the biggest impression.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="random-box">
+            <h3>Saved lines</h3>
+            <div id="favoritesList">
+              <p>There are no saved favorites yet. Tap the Save button on any line to add it here.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>KDB's Pickup Lines</strong><br />
+          Bunamwaya Katale, Uganda<br />
+          0757507778 | 0772407789
+        </div>
+        <div class="footer-links">
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact</a>
+          <a href="favorites.html">Favorites</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const favoritesList = document.getElementById('favoritesList');
+      const favoritesKey = 'kdb-favorites';
+
+      function loadFavorites() {
+        const favorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+
+        if (!favorites.length) {
+          favoritesList.innerHTML = '<p>There are no saved favorites yet. Tap the Save button on any line to add it here.</p>';
+          return;
+        }
+
+        favoritesList.innerHTML = favorites
+          .map(
+            (line) => `
+              <div class="line-card">
+                <p>“${line}”</p>
+              </div>
+            `
+          )
+          .join('');
+      }
+
+      loadFavorites();
+    </script>
+  </body>
+</html>

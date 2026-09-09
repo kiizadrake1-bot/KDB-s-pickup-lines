@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romantic Pickup Lines | KDB's Pickup Lines</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="home page.html" class="brand">KDB's <span>Pickup Lines</span></a>
+        <nav class="nav-links">
+          <a href="home page.html">Home</a>
+          <a href="romatic lines.html" class="active">Romantic</a>
+          <a href="funny pickup lines.html">Funny</a>
+          <a href="flirty pickup lines.html">Flirty</a>
+          <a href="random pickup line.html">Random</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container page-header-inner">
+          <h1>Romantic Pickup Lines</h1>
+          <p>Sweet, heart-touching, and meaningful lines for the person who makes your heart feel safe and warm.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="lines-grid">
+            <article class="line-card">
+              <p>“Every time I see you, my heart finds a reason to smile, and I think that is the most beautiful feeling in the world.”</p>
+              <div class="line-meta">
+                <span>Category: Cute</span>
+                <button class="save-btn" data-line="Every time I see you, my heart finds a reason to smile, and I think that is the most beautiful feeling in the world." data-category="Romantic">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“You are not just my favorite person; you are the peace my heart has been praying for.”</p>
+              <div class="line-meta">
+                <span>Category: Deep Love</span>
+                <button class="save-btn" data-line="You are not just my favorite person; you are the peace my heart has been praying for." data-category="Romantic">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“If love were a song, I would sing it to you every day until the whole world hears how much you mean to me.”</p>
+              <div class="line-meta">
+                <span>Category: Crush</span>
+                <button class="save-btn" data-line="If love were a song, I would sing it to you every day until the whole world hears how much you mean to me." data-category="Romantic">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“I have never met anyone who makes my heart feel this calm, this alive, and this full of hope.”</p>
+              <div class="line-meta">
+                <span>Category: Dating</span>
+                <button class="save-btn" data-line="I have never met anyone who makes my heart feel this calm, this alive, and this full of hope." data-category="Romantic">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“There is a kind of love that doesn’t need a thousand words; it only needs one look, and I already know it is you.”</p>
+              <div class="line-meta">
+                <span>Category: Flirty</span>
+                <button class="save-btn" data-line="There is a kind of love that doesn’t need a thousand words; it only needs one look, and I already know it is you." data-category="Romantic">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“The best part of my day is not the sunrise or the sunset, but the moment I get to think about you.”</p>
+              <div class="line-meta">
+                <span>Category: Cute</span>
+                <button class="save-btn" data-line="The best part of my day is not the sunrise or the sunset, but the moment I get to think about you." data-category="Romantic">Save</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>KDB's Pickup Lines</strong><br />
+          Bunamwaya Katale, Uganda<br />
+          0757507778 | 0772407789
+        </div>
+        <div class="footer-links">
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact</a>
+          <a href="favorites.html">Favorites</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../styles.css"></script>
+    <script>
+      const saveButtons = document.querySelectorAll('.save-btn');
+      const favoritesKey = 'kdb-favorites';
+
+      const existingFavorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+
+      saveButtons.forEach((button) => {
+        const line = button.dataset.line;
+        if (existingFavorites.includes(line)) {
+          button.classList.add('saved');
+          button.textContent = 'Saved';
+        }
+
+        button.addEventListener('click', () => {
+          const favorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+          if (favorites.includes(line)) {
+            const newFavorites = favorites.filter((item) => item !== line);
+            localStorage.setItem(favoritesKey, JSON.stringify(newFavorites));
+            button.classList.remove('saved');
+            button.textContent = 'Save';
+            return;
+          }
+
+          favorites.push(line);
+          localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+          button.classList.add('saved');
+          button.textContent = 'Saved';
+        });
+      });
+    </script>
+  </body>
+</html>

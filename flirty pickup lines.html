@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flirty Pickup Lines | KDB's Pickup Lines</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="home page.html" class="brand">KDB's <span>Pickup Lines</span></a>
+        <nav class="nav-links">
+          <a href="home page.html">Home</a>
+          <a href="romatic lines.html">Romantic</a>
+          <a href="funny pickup lines.html">Funny</a>
+          <a href="flirty pickup lines.html" class="active">Flirty</a>
+          <a href="random pickup line.html">Random</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container page-header-inner">
+          <h1>Flirty Pickup Lines</h1>
+          <p>Confident, smooth, and attractive lines for when you want your message to feel bold, playful, and unforgettable.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="lines-grid">
+            <article class="line-card">
+              <p>“You have that kind of smile that makes my thoughts go quiet, and I’m not complaining.”</p>
+              <div class="line-meta">
+                <span>Category: Smooth</span>
+                <button class="save-btn" data-line="You have that kind of smile that makes my thoughts go quiet, and I’m not complaining." data-category="Flirty">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“I didn’t believe in chemistry until I met you, and now I feel like the whole world changed in your favor.”</p>
+              <div class="line-meta">
+                <span>Category: Confident</span>
+                <button class="save-btn" data-line="I didn’t believe in chemistry until I met you, and now I feel like the whole world changed in your favor." data-category="Flirty">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“You are the kind of person who makes a simple ‘hello’ feel like the beginning of a beautiful story.”</p>
+              <div class="line-meta">
+                <span>Category: Charming</span>
+                <button class="save-btn" data-line="You are the kind of person who makes a simple ‘hello’ feel like the beginning of a beautiful story." data-category="Flirty">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“I think you are proof that destiny knows exactly what it is doing when it brings two people together.”</p>
+              <div class="line-meta">
+                <span>Category: Romantic</span>
+                <button class="save-btn" data-line="I think you are proof that destiny knows exactly what it is doing when it brings two people together." data-category="Flirty">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“There is something about you that makes me want to be brave enough to tell you exactly how I feel.”</p>
+              <div class="line-meta">
+                <span>Category: Honest</span>
+                <button class="save-btn" data-line="There is something about you that makes me want to be brave enough to tell you exactly how I feel." data-category="Flirty">Save</button>
+              </div>
+            </article>
+
+            <article class="line-card">
+              <p>“If I had to choose one reason to smile today, it would be you, because you make everything feel lighter and brighter.”</p>
+              <div class="line-meta">
+                <span>Category: Sweet</span>
+                <button class="save-btn" data-line="If I had to choose one reason to smile today, it would be you, because you make everything feel lighter and brighter." data-category="Flirty">Save</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>KDB's Pickup Lines</strong><br />
+          Bunamwaya Katale, Uganda<br />
+          0757507778 | 0772407789
+        </div>
+        <div class="footer-links">
+          <a href="about us.html">About Us</a>
+          <a href="contact us.html">Contact</a>
+          <a href="favorites.html">Favorites</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const saveButtons = document.querySelectorAll('.save-btn');
+      const favoritesKey = 'kdb-favorites';
+
+      saveButtons.forEach((button) => {
+        const line = button.dataset.line;
+        const favorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+
+        if (favorites.includes(line)) {
+          button.classList.add('saved');
+          button.textContent = 'Saved';
+        }
+
+        button.addEventListener('click', () => {
+          const updatedFavorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+          if (updatedFavorites.includes(line)) {
+            const newFavorites = updatedFavorites.filter((item) => item !== line);
+            localStorage.setItem(favoritesKey, JSON.stringify(newFavorites));
+            button.classList.remove('saved');
+            button.textContent = 'Save';
+            return;
+          }
+
+          updatedFavorites.push(line);
+          localStorage.setItem(favoritesKey, JSON.stringify(updatedFavorites));
+          button.classList.add('saved');
+          button.textContent = 'Saved';
+        });
+      });
+    </script>
+  </body>
+</html>
